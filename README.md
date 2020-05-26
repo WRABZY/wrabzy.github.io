@@ -1,2 +1,2 @@
-# wrabzy-dot-xyz.github.io
+# wrabzy.github.io
 Web-lab
