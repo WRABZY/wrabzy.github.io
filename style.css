@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
-
 html {
 	background: #000 url(background/red_background.gif);
 	background-repeat: no-repeat;
@@ -12,9 +10,9 @@ html {
 }
 
 .WRABZY {
-	font-family: 'Fredericka the Great', cursive;
-	/*font-style: italic;*/
-	/*font-weight: bold;*/
+	font-family: sans-serif;
+	font-style: italic;
+	font-weight: bold;
 	text-align: center;
 	font-size: 1100%;
 	padding-top: 40px;
