@@ -21,6 +21,10 @@ html {
 	width: 5.5em;
 }
 
+.logo{
+		margin-right: -0.13em;
+	}
+
 table {
 	margin: auto;
 }
@@ -97,6 +101,9 @@ img {
 }
 
 @media only screen and (max-width: 1300px) {
+	html {
+		background: #000;
+	}
 	.WRABZY {
 		font-style: italic;
 		text-align: center;
@@ -106,6 +113,10 @@ img {
 		margin-bottom: -3%;
 		opacity: 0.8;
 		width: 6em;
+	}
+	
+	.logo{
+		margin-right: -0.05em;
 	}
 	
 	.button {
