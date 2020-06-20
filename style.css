@@ -1,25 +1,93 @@
 html {
 	background: #000 url(background/red_background.gif);
 	background-repeat: no-repeat;
-	background-position: center center;
+	background-position: center top;
 	background-attachment: fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+	-webkit-background-size: 100%;
+	-moz-background-size: 100%;
+	-o-background-size: 100%;
+	background-size: 100%;
+	font-family: sans-serif;
+	
+	font-weight: bold;
 }
 
 .WRABZY {
-	font-family: sans-serif;
 	font-style: italic;
-	font-weight: bold;
 	text-align: center;
-	font-size: 10em;
-	padding-top: 3%;
-	color: rgba(120, 0, 0, 0.2);
-	/*vertical-align: middle;*/
+	font-size: 8em;
+	color: rgb(120, 0, 0);
+	margin-bottom: 1%;
+	opacity: 0.2;
+	width: 5.5em;
 }
 
-.logo {
+table {
+	margin: auto;
+}
+
+.WRABZY:hover {
+	opacity: 0.8;
+	cursor: crosshair;
+}
+
+img {
 	vertical-align: top;
+	width: 1.7em;
+}
+
+.button {
+	width: 5em;
+	height: 5em;
+	line-height:2em;
+	color: rgba(120, 0, 0, 0.8);
+	background-color: rgba(0, 0, 0, 0.2);
+	text-align: center;
+	font-size: 16px;
+	border-radius: 50%;
+	border: 1px solid rgba(120, 0, 0, 0.2);
+	padding: 1%;
+	display: inline-block;
+	text-decoration: none;
+	margin-left: 4%;
+	margin-right: 4%;
+	cursor: pointer;
+	vertical-align: middle;
+	box-shadow: 0 0.5em 2em rgba(120,0,0,0.2);
+
+}
+
+.button:hover {
+	border: 2px solid rgba(120, 0, 0, 0.9);
+	box-shadow: 0 0.5em 4em rgba(120,0,0,0.9);
+	color: rgba(200, 0, 0, 0.8);
+}
+
+.button:active {
+	border: 2px solid rgba(170, 0, 0, 0.9);
+	box-shadow: 0 0.6em 3em rgba(170,0,0,0.9);
+	color: rgba(200, 0, 0, 0.9);
+}
+
+.contacts {
+	color: rgba(150, 0, 0, 0.8);
+	text-decoration: none;
+}
+
+.contacts:active {
+	color: rgb(200, 0, 0);
+}
+
+.contacts:visited {
+	color: rgb(120, 0, 0);
+}
+
+.contacts:hover {
+	color: rgb(200, 0, 0);
+}
+
+.contactsContainer {
+	margin-top: 2em;
+	line-height: 2em;
+	text-align: center;
 }
