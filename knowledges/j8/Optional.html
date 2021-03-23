@@ -1,0 +1,50 @@
+<html>
+<body>
+    <h1>Тип Optional&lt;T&gt;</h1>
+    <div>
+        Объект типа Optional&lt;T&gt; является оболочкой значения типа T или null.
+    </div>
+    <h2>Создание объектов типа Optional&lt;T&gt;</h2>
+    <div>
+        <ul>
+            <li>
+                <code>Optional&lt;T&gt; optionalValue = Optional.of(value)</code> - если value == null throws NullPointerException
+            </li>
+            <li>
+                <code>Optional&lt;T&gt; optionalValue = Optional.empty()</code>
+            </li>
+            <li>
+                <code>Optional&lt;T&gt; optionalValue = Optional.ofNullable(value)</code> - если value == null, возвращает Optional.empty() 
+            </li>
+        </ul>
+    </div>
+    <h2>Примеры использования</h2>
+    <div>
+        <ul>
+            <li>
+                <code>T result = optionalValue.orElse(defaultValue);</code>
+            </li>
+            <li>
+                <code>T result = optionalValue.orElseGet(supplier);</code>
+            </li>
+            <li>
+                <code>T result = optionalValue.orElseThrow(supplier);</code>
+            </li>
+            <li>
+                <code>optionalValue.ifPresent(consumer);</code>
+            </li>
+            <li>
+                <code>Optional&lt;T&gt; newOptional = optionalValue.map(function);</code>
+            </li>
+             <li>
+                <code>Optional&lt;T&gt; newOptional = value.f().flatMap(T::g)</code> 
+                - если f() возвращает объект, 
+                обёрнутый в Optional&lt;T&gt;, 
+                то flatMap позволяет извлечь объект из обертки, 
+                применить его метод g() 
+                и поместить результат в обертку.
+            </li>
+        </ul>
+    </div> 
+</body>
+</html>
