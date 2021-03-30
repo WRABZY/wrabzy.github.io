@@ -1,75 +1,82 @@
 <html>
 <body>
     <h1>Типы</h1>
-    <div>
-        <code>x :: Type</code> - типовая аннотация
+    <div>Типовая аннотация
+        <code>x :: Type</code>
     </div>
-    <div>
-        <code>fun :: Type -> Type</code> - типовая аннотация функции, принимающей аргумент типа Type и возвращающей результат типа Type 
+    <div>Типовая аннотация функции, принимающей аргумент типа Type и возвращающей результат типа Type 
+        <code>fun :: Type -> Type</code>
     </div>
-    <div>
-        <code>fun :: a -> a</code> - типовая аннотация обобщенной функции
+    <div>Типовая аннотация обобщенной функции
+        <code>fun :: a -> a</code> 
     </div>
     <h2>Синоним типов: type</h2>
     <div>
-        <code>type String = [Char]</code> - если написано String, то имеется в виду список символов [Char]
+        <code>type String = [Char]</code>Такая запись означает, что если написано String, то имеется в виду список символов [Char]
     </div>
     <h2>Новый тип: data</h2>
     <div>
-        <code>data Sex = Male | Female</code> - объявление нового типа Sex (Sex - конструктор типа), значением которого может быть либо конструктор данных Male, либо конструктор данных Female 
+        <code>data Sex = Male | Female</code>Объявление нового типа Sex (Sex - конструктор типа), значением которого может быть либо конструктор данных Male, либо конструктор данных Female.
+    </div>
+    <div>Пример из стандартной библиотеки:
+        <code>data Bool = True | False</code>
+    </div>
+    <div>Пример использования сложного конструктора данных:
+        <code>data BloodType = BloodType ABOType RhType</code>Здесь первый BloodType - конструктор типа, а второй BloodType - конструктор данных.
     </div>
     <div>
-        <code>data Bool = True | False</code> - пример из стандартной библиотеки
+        При этом значение типа BloodType состоит из значений типов ABOType и RhType
     </div>
-    <div>
-        <code>data BloodType = BloodType ABOType RhType</code> - первый BloodType - конструктор типа, а второй BloodType - конструктор данных. Значение типа BloodType состоит из значений типов ABOType и RhType
+    <div>При создании типа указывается конструктор данных, в который передаются значения нужных типов: 
+        <code>patient1BT = BloodType A Neg</code>
     </div>
-    <div>
-        При создании типа указывается конструктор данных, в который передаются значения нужных типов: <code>patient1BT = BloodType A Neg</code>
+    <div> Пример сопоставления с образцом данных типа BloodType в функции reloadBlood: 
+        <code>reloadBlood (BloodType x y)</code>x - это значение типа ABOType, а y - значение типа RhType
     </div>
+    <h4>Общая схема создания типов с помощью слова data</h4>
     <div>
-        <code>reloadBlood (BloodType x y)</code> - в функции reloadBlood происходит сопоставление с образцом: x - это значение типа ABOType, а y - значение типа RhType
+        <code>data TypeConstructor = DataConstructor1 Type1 Type2 | DataConstructor2 Type3</code>
     </div>
-    <div>
-        <code>data TypeConstructor = DataConstructor1 Type1 Type2 | DataConstructor2 Type3</code> - общая схема создания типов с помощью слова data
+    <div>Cинтаксис записей (именованные аргументы конструктора):
+        <code>data Orc = Orc {name :: Name, color :: Color, age :: Int, weapon :: Weapon}</code>Теперь при вызове color gorklok вернется цвет Горклока
     </div>
-    <div>
-        <code>data Orc = Orc {name :: Name, color :: Color, age :: Int, weapon :: Weapon}</code> - синтаксис записей aka именованные аргументы конструктора - позволяет вызвать color gorklok и получить цвет Горклока
+    <div>Создание экземпляра класса через синтаксис записей:
+        <code>gorklok = Orc {name = Name "Gorklok", color = Green, age = 118, weapon = Axe}</code>
     </div>
-    <div>
-        <code>gorklok = Orc {name = Name "Gorklok", color = Green, age = 118, weapon = Axe}</code> - создание экземпляра класса через синтаксис записей
+    <div>Создание экземпляра класса через изменение свойства существующего экземпляра:
+        <code>murglok = gorklok {name = Name "Murglok"}</code>
     </div>
-    <div>
-        <code>murglok = gorklok {name = Name "Murglok"}</code> - создание экземпляра класса через изменение свойства существующего экземпляра
+    <h2>Классы типов (интерфейсы)</h2>
+    <div>Пример из стандартной библиотеки: бинарная функция + будет работать только со значениями типов, реализующих интерфейс Num
+        <code>(+) :: Num a => a -> a -> a</code>
     </div>
-    <h2>Классы типов = интерфейсы</h2>
-    <div>
-        <code>(+) :: Num a => a -> a -> a</code> - пример из стандартной библиотеки: бинарная функция + будет работать только со значениями типов, реализующих интерфейс Num
-    </div>
-    <div>
+    <div>Определение класса типов.
         <code>class ClassTypeName a where</code> 
     </div>
     <div>
-        <code>&nbsp;&nbsp;fun1 :: a -> a</code> - определение класса типов. Вместо a будет подставляться тип, который будет реализовать данный интерфейс.
+        <code>&nbsp;&nbsp;fun1 :: a -> a</code>Вместо a будет подставляться тип, который будет реализовывать данный интерфейс.
     </div>
-    <div>
-        <code>class Eq a => Ord a where</code> - класс типов Ord требует от типа a сперва реализовать класс типов Eq
+    <div>Класс типов Ord требует от типа a сперва реализовать класс типов Eq:
+        <code>class Eq a => Ord a where</code>
     </div>
-    <div>
-        <code>data Sex = Male | Female deriving (Show, Eq)</code> - автоматическая реализация классов типов Show и Eq типом Sex
+    <div>Автоматическая реализация классов типов Show и Eq типом Sex:
+        <code>data Sex = Male | Female deriving (Show, Eq)</code>
     </div>
-    <div>
+    <div>Ручная реализация класса типов Show типом Sex
         <code>instance Show Sex where</code>
     </div>
     <div>
-        <code>&nbsp;&nbsp;show Male = "мужик"</code> - ручная реализация класса типов Show типом Sex (еще нужно определить show Female)
+        <code>&nbsp;&nbsp;show Male = "мужик"</code>(еще нужно определить show Female)
     </div>
-    <h2>Новый тип, но только ради реализации класса типов: newtype</h2>
+    <h2>newtype</h2>
     <div>
-        Типы, определенные через newtype могут иметь только один конструктор и только одно значение в нем
+        Слово newtype используется для определения новых типов чаще всего в случае, когда требуется узкоспециальная реализации класса типов. 
     </div>
     <div>
-        <code>newtype Name = Name (String, String, String) deriving (Show, Eq)</code> - единственным значением может быть кортеж или список 
+        Типы, определенные через newtype могут иметь только один конструктор и только одно значение в нем.
+    </div>
+    <div>
+        <code>newtype Name = Name (String, String, String) deriving (Show, Eq)</code>Здесь единственное значение - это кортеж. 
     </div>
 </body>
 </html>

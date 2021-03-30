@@ -1,6 +1,7 @@
 <html>
 <body>
-    <h1>Потоки данных (Stream API)</h1>
+    <h1>Потоки данных</h1>
+    <h2>Stream API</h2>
     <div>
          <ol>
             <li>
@@ -38,47 +39,49 @@
         <ul>
             <li>
                 Поток без элементов:
-                <code>Stream.empty();</code>
+                <code>Stream.empty()</code>
             </li>
             <li>
                 Из отдельных данных:
-                <code>Stream.of(data1, data2, data3);</code>
+                <code>Stream.of(data1, data2, data3)</code>
             </li>
             <li>
                 Из массива: 
-                <code>Stream.of(array);</code>
+                <code>Stream.of(array)</code>
             </li>
             <li>
                 Из части массива: 
-                <code>Arrays.stream(array, startInc, endExc);</code>
+                <code>Arrays.stream(array, startInc, endExc)</code>
             </li>
             <li>
                 Из коллекции:
-                <code>collection.stream(); <mark>parallelStream</mark></code>
+                <code>collection.stream()</code>
+                <code>collection.parallelStream()</code>
             </li>
             <li>
                 Бесконечный поток:
-                <code>Stream.generate(supplier);</code>
+                <code>Stream.generate(supplier)</code>
             </li>
             <li>
                 Бесконечная последовательность:
-                <code>Stream.iterate(firstValue, unaryOperator);</code>
+                <code>Stream.iterate(firstValue, unaryOperator)</code>
             </li>
             <li>
                 Из строки:
-                <code>Pattern.compile("regex").splitAsStream(charSequence);</code>
+                <code>Pattern.compile("regex").splitAsStream(charSequence)</code>
             </li>
             <li>
                 Из файла:
-                <code>Files.lines(path); <mark>lines(path, charset)</mark></code>
+                <code>Files.lines(path)</code>
+                <code>Files.lines(path, charset)</code>
             </li>
             <li>
                 Луч:
-                <code>IntStream.range(0, 100);</code>
+                <code>IntStream.range(0, 100)</code>
             </li>
             <li>
                 Отрезок:
-                <code>IntStream.rangeClosed(0, 100);</code>
+                <code>IntStream.rangeClosed(0, 100)</code>
             </li>
         </ul>
         Список не является исчерпывающим.
@@ -87,40 +90,33 @@
     <div>
         Эти операции не выполняются до вызова терминальной операции.
         <ul>
-            <li>
-                <code>stream.filter(predicate);</code> - фильтрация
+            <li>Фильтрация:
+                <code>stream.filter(predicate)</code>
             </li>
-            <li>
-                <code>stream.map(function);</code>
-                - преобразование каждого элемента функцией (возвращающей значение)
+            <li>Преобразование каждого элемента функцией (возвращающей значение):
+                <code>stream.map(function)</code>
             </li>
-            <li>
-                <code>stream.flatMap(function);</code>
-                - если function возвращает потоки, то flatMap конкатенирует их в один поток
+            <li>Если function возвращает потоки, то flatMap конкатенирует их в один поток:
+                <code>stream.flatMap(function)</code>
             </li>
-            <li>
-                <code>stream.limit(maxSize);</code>
-                - ограничение максимального количества элементов
+            <li>Ограничение максимального количества элементов:
+                <code>stream.limit(maxSize)</code>
             </li>
-            <li>
-                <code>stream.skip(n);</code>
-                - отбрасывание первых n элементов
+            <li>Отбрасывание первых n элементов:
+                <code>stream.skip(n)</code>
             </li>
-            <li>
-                <code>Stream.concat(stream1, stream2);</code>
-                - конкатенация двух потоков
+            <li>Конкатенация двух потоков:
+                <code>Stream.concat(stream1, stream2)</code>
             </li>
-            <li>
-                <code>stream.distinct();</code>
-                - удаление дубликатов из потока
+            <li>Удаление дубликатов из потока:
+                <code>stream.distinct()</code>
             </li>
-            <li>
-                <code>stream.sorted(); <mark>sorted(comparator)</mark></code>
-                - сортировка потока
+            <li>Сортировка потока:
+                <code>stream.sorted()</code>
+                <code>stream.sorted(comparator)</code>
             </li>
-            <li>
-                <code>stream.peek(consumer);</code>
-                - передаваемая функция вызывается при извлечении каждого элемента
+            <li>Передаваемая функция вызывается при извлечении каждого элемента:
+                <code>stream.peek(consumer)</code>
             </li>
         </ul>
         Список не является исчерпывающим.
@@ -128,40 +124,44 @@
     <h2>Терминальные операции с потоками</h2>
     <div>
         <ul>
-            <li>
-                <code>long stream.count();</code> - подсчет элементов в потоке
+            <li>Подсчет элементов в потоке:
+                <code>long stream.count()</code>
             </li>
-            <li>
-                <code>Optional&lt;T&gt; stream.min(comparator); <mark>max</mark></code> 
-                - получение минимального или максимального значения в потоке
+            <li>Получение минимального или максимального значения в потоке:
+                <code>Optional&lt;T&gt; stream.min(comparator)</code> 
+                <code>Optional&lt;T&gt; stream.max(comparator)</code> 
             </li>
-            <li>
-                <code>Optional&lt;T&gt; stream.findFirst();</code> 
-                - получение первого значения в потоке
+            <li>Получение первого значения в потоке:
+                <code>Optional&lt;T&gt; stream.findFirst()</code> 
             </li>
-            <li>
-                <code>Optional&lt;T&gt; stream.findAny();</code> 
-                - получение любого значения в потоке
+            <li>Получение любого значения в потоке:
+                <code>Optional&lt;T&gt; stream.findAny()</code> 
             </li>
-            <li>
-                <code>boolean stream.anyMatch(predicate); <mark>allMatch, noneMatch</mark></code> 
-                - проверка, имеются ли совпадения
+            <li>Проверка, имеются ли совпадения:
+                <code>boolean stream.anyMatch(predicate)</code> 
+                <code>boolean stream.allMatch(predicate)</code> 
+                <code>boolean stream.noneMatch(predicate)</code> 
             </li>
-            <li>
-                <code>void stream.forEach(consumer); <mark>forEachOrdered</mark></code> 
-                - применение функции к каждому значению в потоке
+            <li>Применение функции к каждому значению в потоке:
+                <code>void stream.forEach(consumer)</code> 
+                <code>void stream.forEachOrdered(consumer)</code> 
             </li>
-            <li>
-                <code>Object[] stream.toArray(); [toArray(intFunction)]</code> 
-                - преобразование потока в массив <mark>String[] toArray(String[]::new)</mark>
+            <li>Преобразование потока в массив:
+                <code>Object[] stream.toArray()</code> 
+                <code>Object[] stream.toArray(intFunction)</code> 
+                <code>String[] toArray(String[]::new)<code>
             </li>
-            <li>
-                <code>Collection&lt;T&gt; stream.collect(collector);</code> 
-                - преобразование потока в коллекцию <mark>класс Collectors предоставляет фабрики коллекторов</mark>
+            <li>Преобразование потока в коллекцию:
+                <code>Collection&lt;T&gt; stream.collect(collector)</code> 
+                <mark>класс Collectors предоставляет фабрики коллекторов</mark>
             </li>
-            <li>
-                <code>Optional&lt;T&gt; stream.reduce(binaryOperator);</code> 
-                - свертка с использованием первого элемента потока как первого значения <mark>T reduce(identity, binaryOperator) - для использования отдельного первого значения. Если поток пуст, то вернется значение identity. Есть третья форма метода reduce для использования с аккумулятором.</mark>
+            <li>Свертка с использованием первого элемента потока как первого значения:
+                <code>Optional&lt;T&gt; stream.reduce(binaryOperator)</code> 
+            </li>
+            <li>Свертка с использованием отдельного первого значения:
+                <code>T reduce(identity, binaryOperator)</code> 
+                Если поток пуст, то вернется значение identity. 
+                Есть и третья форма метода reduce для использования с аккумулятором.
             </li>
         </ul>
     </div>
