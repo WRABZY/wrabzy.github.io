@@ -81,7 +81,7 @@ public class ContentMaker {
     
     private static boolean isHelpful(String fileName, String dirName) {
         return !fileName.startsWith("sname") && 
-               !fileName.startsWith(dirName) &&
+               !fileName.substring(0, fileName.indexOf(".")).equals(dirName) &&
                 fileName.endsWith(".html");
     }
     
