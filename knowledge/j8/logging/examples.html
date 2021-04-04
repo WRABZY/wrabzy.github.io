@@ -1,0 +1,33 @@
+<html>
+<body>
+    <h1>Примеры кода</h1>
+    <div>Создание логера
+        <code>private static final Logger logger = Logger.getLogger("name.of.logger");</code>
+    </div>
+    <div>Задание уровня логеру
+        <code>logger.setLevel(Level.FINE);</code>
+    </div>
+    <div>Вызовы методов логирования
+        <code>logger.warning(message);</code>
+        <code>logger.log(Level.WARNING, message);</code>
+        <code>logger.logp(Level.WARNING, "ClassName", "methodName", message);</code>
+        <code>logger.entering("ClassName", "methodName");</code>
+        <code>logger.entering("ClassName", "methodName", new Object[]{param1, param2, param3});</code>
+        <code>logger.exiting("ClassName", "methodName");</code>
+        <code>logger.exiting("ClassName", "methodName", result);</code>
+    </div>
+    <div>Логирование исключений
+        <code>logger.throwing("ClassName", "methodName", throwable);</code>
+        При вызове метода throwing() запись имеет уровень FINER.
+        <code>logger.log(Level.WARNING, "message", throwable);</code>
+    </div>
+    <div>Установка своего хендлера
+        <code>Logger logger = Logger.getLogger("com.mycompany.myapp");</code>
+        <code>logger.setLevel(Level.FINE);</code>
+        <code>logger.setUseParentHandlers(false);</code>
+        <code>Handler handler = new ConsoleHandler();</code>
+        <code>handler.setLevel(Level.FINE);</code>
+        <code>logger.addHandler(handler);</code>
+    </div>
+</body>
+</html>
