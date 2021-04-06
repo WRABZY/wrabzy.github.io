@@ -4,8 +4,8 @@
     <div>
         Объект типа Optional&lt;T&gt; может содержать внутри значение типа T или null.
     </div>
-    <h2>Создание объектов типа Optional&lt;T&gt;</h2>
-    <div>
+    <p>
+        <h2>Создание объектов типа Optional&lt;T&gt;</h2>
         <ul>
             <li>Создание из значения, которое не может быть null:
                 <code>Optional&lt;T&gt; optionalValue = Optional.of(value)</code>Eсли value == null, throws NullPointerException
@@ -17,9 +17,9 @@
                 <code>Optional&lt;T&gt; optionalValue = Optional.ofNullable(value)</code>Если value == null, возвращает Optional.empty() 
             </li>
         </ul>
-    </div>
-    <h2>Примеры использования</h2>
-    <div>
+    </p>
+    <p>
+        <h2>Примеры использования</h2>
         <ul>
             <li>Если в контейнере не null, то значение распакуется, иначе, result инициализируется значением defaultValue:
                 <code>T result = optionalValue.orElse(defaultValue)</code>
@@ -45,6 +45,6 @@
                 и поместить результат в обертку.
             </li>
         </ul>
-    </div> 
+    </p>
 </body>
 </html>

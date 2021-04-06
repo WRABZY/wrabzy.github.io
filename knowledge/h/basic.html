@@ -1,60 +1,36 @@
 <html>
 <body>
-    <h1>Базовые конструкции</h1>
-    <h4>Импорт</h4>
-    <div>
-        <code>import Module.Name</code>
-    </div>
-    <h4>Функция</h4>
-    <div>
-        <code>simpleFunction x = 1</code>
-    </div>
-    <h4>if then else</h4>
-    <div>Ветвь else обязательна:
-        <code>getNumParity x = if x `mod` 2 == 1 then "Odd" else "Even"</code>
-    </div>
-    <h4>let и where</h4>
-    <div>
-        <code>let a = b + 1 in &lt;выражение&gt;</code>a заменяется на b + 1 в следующем после "in" &lt;выражении&gt;
-    </div>
-    <div>
-        <code>where a = b + 1</code>a заменяется на b + 1 в блоке, предшествующем "where". 
-    </div>
-    <div>
-        "where" должно отделяться отступами относительно блока, к которому оно относится.
-    </div>
-    <h4>Лямбды</h4>
-    <div>Простая лямбда-функция:
-        <code>\x -> x + 1</code>
-    </div>
-    <h4>Доступ к элементу списка по индексу</h4>
-    <div>
-        <code>"FUTURAMA" !! 2</code>@return 'T'
-    </div>
-    <h4>Сопоставление с образцом</h4>
-    <div>
-        <code>function list@(x:xs)</code>Здесь: list - весь список, переданный в функцию, x - его голова, xs - его хвост.
-    </div>
-    <div>
-        _ (символ нижнего подчеркивания) - универсальный образец, с которым совпадут любые данные, переданные в функцию
-    </div>
-    <h4>Левая свёртка | foldl</h4>
-    <div>Левая свёртка не может использоваться с бесконечными списками
-        <code>foldl fun init list</code>Лениво сворачивает список слева, применяя fun к кажому элементу списка. Первым используется инициализирующее значение init.
-    </div>
-    <div>
-        <mark>
-            foldl' - неленивая версия foldl, которая вместо инициализирующего значения использует первый элемент списка.
-        </mark>
-    </div>
-    <h4>Правая свёртка | foldr</h4>
-    <div>
-        <code>foldr fun init list</code>Cворачивает список (возможно бесконечный) справа. Более эффективна, чем foldl. 
-    </div>
-    <div>
-        <mark>
-            foldr' - неленивая версия foldr, которая вместо инициализирующего значения использует первый элемент списка.
-        </mark>
-    </div>
+    <h1>Основы основ</h1>
+    <p>
+        <ul>
+            <li>Импорт
+                <code>import Module.Name</code>
+            </li>
+            <li>Функция
+                <code>simpleFunction x = 1</code>
+            </li>
+            <li>if then else
+                <code>getNumParity x = if x `mod` 2 == 1 then "Odd" else "Even"</code>
+            </li>
+            <li>let и where
+                <code>let a = b + 1 in &lt;выражение&gt;</code>
+                <code>where a = b + 1</code>
+            </li>
+            <li>Отступы важны
+            </li>
+            <li>Лямбды
+                <code>\x -> x + 1</code>
+            </li>
+            <li>Доступ к элементу списка по индексу
+                <code>"FUTURAMA" !! 2</code>
+            </li>
+            <li>Сопоставление с образцом
+                <code>function list@(x:xs)</code>
+            </li>
+            <li>Универсальный образец - символ нижнего подчеркивания
+                <code>_</code>
+            </li>
+        </ul>
+    </p>
 </body>
 </html>
