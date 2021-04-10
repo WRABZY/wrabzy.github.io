@@ -18,29 +18,28 @@ body, html {
 }
 
 .logo {
-    margin-top: 22px;
     height: 54px;
     cursor: crosshair;
 }
 
 .telegram-logo {
-    margin-top: 22px;
+    margin-bottom: 25px;
     height: 27px;
 }
 
 .github-logo {
-    margin-top: 22px;
+    margin-bottom: 25px;
     height: 27px;
 }
 
 .codewars-logo {
-    margin-top: 22px;
+    margin-top: 25px;
     height: 27px;
     border-radius: 50%;
 }
 
 .searchBar {
-    margin-top: 22px;
+    margin-top: 25px;
     padding-left: 5px;
     /*padding-right: 5px;*/
     height: 27px;
