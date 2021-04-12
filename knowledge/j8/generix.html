@@ -136,7 +136,57 @@
     </p>
     <p>
         <h2>Подстановочные типы</h2>
-        стр402
+        <h3>? extends SomeType</h3>
+        <div>
+            От Pair наследует Pair&lt;? extends Employee&gt;
+        </div>
+        <div>
+            От Pair&lt;? extends Employee&gt; наследуют Pair&lt;Manager&gt; и Pair&lt;Employee&gt;
+        </div>
+        <div>
+            При использовании подстановки Pair&lt;? extends Employee&gt; в классе имеются методы:
+            <code>? extends Employee getFirst()</code>
+            <code>void setFirst(? extends Employee)</code>
+            <div>
+                getFirst() возвращает объект какого-то класса, производного от Employee, то есть результат можно присвоить ссылке типа Employee.
+            </div>
+            <div>
+                setFirst() принимает объект какого-то класса, производного от Employee, и должен его присвоить ссылке какого-то класса,
+                производного от Employee. Такая неопределенность делает невозможным вызов сеттера.
+            </div>
+            <mark>
+                Главный смысл подстановок заключается в разделении безопасных методов доступа и небезопасных модифицирующих методов.
+            </mark>
+        </div>
+        <h3>? super OtherType</h3>
+        <div>
+            Такая подстановка ограничивается всеми супертипами OtherType и дает поведение, противоположное ? extends.
+        </div>
+        <div>
+            От Pair наследует Pair&lt;?&gt;
+        </div>
+        <div>
+            От Pair&lt;?&gt; наследует Pair&lt;? super Manager&gt;
+        </div>
+        <div>
+            От Pair&lt;? super Manager&gt; наследуют Pair&lt;Object&gt; и Pair&lt;Employee&gt;
+        </div>
+        <div>
+            При использовании подстановки Pair&lt;? super Manager&gt; в классе имеются методы:
+            <code>? super Manager getFirst()</code>
+            <code>void setFirst(? super Manager)</code>
+            <div>
+                getFirst() возвращает объект какого-то класса, от которого наследует Manager.
+                Из-за неопределенности результат можно присвоить только ссылке типа Object.
+            </div>
+            <div>
+                setFirst() принимает объект для того, чтобы присвоить ссылку на него переменной типа Manager или предкам Manager.
+                Поэтому setFirst() не может принимать предков Manager, но может принять Manager или объекты производных классов относительно Manager.
+            </div>
+        </div>
+        <mark>
+            Подстановки super - для записи в обобщенный объект, extends - для чтения из обобщенного объекта.
+        </mark>
     </p>
 </body>
 </html>
