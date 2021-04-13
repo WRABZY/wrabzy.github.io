@@ -1,0 +1,45 @@
+<html>
+<body>
+    <h1>Обобщения внутри ВМ</h1>
+    <p> 
+        При создании обобщенного типа автоматически создается соответствующий ему базовый тип (Raw type, происходит Type Erasure).
+        Имя базового типа совпадает с именем обобщенного типа с удаленными параметрами типа.
+        Переменные типа стираются и заменяются первым ограничивающим типом (или типом Object).
+        К остальным ограничивающим типам там, где это потребуется, осуществляется приведение.
+        <div>
+            Вызов метода, возвращающего значение типа, заданного типовой переменной, преобразуется в две команды для ВМ:
+            <ul>
+                <li>Вызов метода базового типа</li>
+                <li>Приведение типа результата (первого ограничивающего типа или типа Object)
+                к типу, который должен был вернуться при вызове метода.</li>
+            </ul>
+            Приведение типа также требуется при прямом обращении к обобщенным полям обобщенного класса.
+        </div>
+        <div>
+            <h3>Мостовые методы</h3>
+            Рассмотрим пример:
+            <code>class AnyClass&lt;T&gt; {</code>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;public &lt;T&gt; void someMethod(T arg) { ... }</code>
+            <code>}</code>
+            При наследовании от AnyClass&lt;T&gt; и при переопределении метода someMethod():
+            <code>class OtherClass extends AnyClass&lt;String&gt; {</code>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;public void someMethod(String arg) { ... }</code>
+            <code>}</code>
+            В классе OtherClass фактически будет определено два метода:
+            <code>public void someMethod(Object arg) { ... }</code>
+            <code>public void someMethod(String arg) { ... }</code>
+            Так как AnyClass после компиляции будет определен как 
+            <code>class AnyClass {</code>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;public void someMethod(Object arg) { ... }</code>
+            <code>}</code>
+            Для обеспечения принципа полиморфизма метод someMethod(Object arg) в классе наследнике 
+            автоматически генерируется как мостовой, в нем происходит вызов требуемого метода:
+            <code>public void someMethod(Object arg) {</code>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;someMethod((OtherClass) arg);</code>
+            <code>}</code>
+            Более того мостовые методы могут различаться только возвращаемым типом, 
+            хотя вручную объявить методы с одинаковой сигнатурой, отличающиеся только типами результатов, нельзя. 
+        </div>
+    </p>
+</body>
+</html>
