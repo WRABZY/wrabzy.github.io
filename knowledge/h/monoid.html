@@ -1,0 +1,37 @@
+<html>
+<body>
+    <h1>Monoid</h1>
+    <p>
+        Monoid, как и Semigroup, определяет ассоциативную операцию &lt;&gt;,
+        но, в отличие от Semigroup, требует, также, наличия нейтрального элемента:
+        <code>x &lt;&gt; id = id &lt;&gt; x = x</code>
+        id - от identity
+    </p>
+    <p>
+        <h2>Определение Monoid</h2>
+        <code>class Monoid a where</code>
+        <code>&nbsp;&nbsp;mempty :: a</code>
+        <code>&nbsp;&nbsp;mappend :: a -> a -> a</code>
+        <code>&nbsp;&nbsp;mconcat :: [a] -> a</code>
+        <mark>Для списков mappend = ++ = &lt;&gt;</mark>
+    </p>
+    <p>
+        <h2>Законы Monoid</h2>
+        <ol>
+            <li>Наличие нейтрального элемента слева (Left identity)
+                <code>mappend mempty x = x</code>
+            </li>
+            <li>Наличие нейтрального элемента справа (Right identity)
+                <code>mappend x mempty = x</code>
+            </li>
+            <li>Ассоциативность (Associativity)
+                <code>mappend x (mappend y z) = mappend (mappend x y) z</code>
+            </li>
+            <li>Конкатенация (Concatenation)
+                <code>mconcat = foldr mappend mempty</code>
+            </li>
+        </ol>
+        <mark>foldr используется из-за возможности работы с бесконечными списками</mark>
+    </p>
+</body>
+</html>
