@@ -1,6 +1,24 @@
 <html>
 <body>
-    <h1>Monoid</h1>
+    <h1>Semigroup, Monoid</h1>
+    <p>
+        Полугруппы (Semigroup) представлены классом типов, определенным в Data.Semigroup.
+		<div>
+			Semigroup определяет функцию &lt;&gt;:
+			<code>(&lt;&gt;) :: Semigroup a => a -> a -> a</code>
+			Эта функция позволяет скомбинировать две сущности для получения сущности того же типа.
+		</div>
+		<div>
+			Пример реализации:
+			<code>instance Semigroup Integer where</code>
+			<code>&nbsp;&nbsp;(&lt;&gt;) x y = x + y</code>
+		</div>
+		<div>	
+			Функция &lt;&gt; должна обладать ассоциативностью:
+			неважно, в каком порядке она применяется, результат должен быть один:
+			<code>(a &lt;&gt; b) &lt;&gt; c = a &lt;&gt; (b &lt;&gt; c)</code>	
+		</div>		
+    </p>
     <p>
         Monoid, как и Semigroup, определяет ассоциативную операцию &lt;&gt;,
         но, в отличие от Semigroup, требует, также, наличия нейтрального элемента:

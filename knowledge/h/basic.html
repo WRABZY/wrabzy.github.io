@@ -1,6 +1,7 @@
 <html>
 <body>
     <h1>Основы основ</h1>
+    <mark>Отступы важны</mark>
     <p>
         <ul>
             <li>Импорт
@@ -16,7 +17,10 @@
                 <code>let a = b + 1 in &lt;выражение&gt;</code>
                 <code>where a = b + 1</code>
             </li>
-            <li>Отступы важны
+            <li>Композиция - ф., которая принимает две функции в качестве аргументов и передает первой результат второй:
+                <code>(.) - композиция</code>
+                <code>someLast :: [a] -> a</code>
+                <code>someLast :: head . reverse</code>
             </li>
             <li>Лямбды
                 <code>\x -> x + 1</code>
@@ -29,6 +33,14 @@
             </li>
             <li>Универсальный образец - символ нижнего подчеркивания
                 <code>_</code>
+            </li>
+            <li>Охранные выражения
+                <code>howMuch :: Int -> String</code>
+                <code>howMuch n | n > 10 = "много"</code>
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| n > 0 = "немного"</code>
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| n == 0 = "нет"</code>
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| otherwise = "ушли в минус"</code>
+                В охранных выражениях значение функции вычисляется после нахождения истинного условия.
             </li>
         </ul>
     </p>
