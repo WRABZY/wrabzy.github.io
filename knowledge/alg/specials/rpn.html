@@ -15,20 +15,16 @@
                 <code>Пока в стеке остаются элементы:</code>
                 <code>- извлечь элемент</code>
                 <code>- если он отличен от (, записать в выходную строку</code>
-                <code>При чтении элемента ) выйти из строки</code>
+                <code>- при чтении ( - выйти из цикла</code>
             </li>
             <li>{ Оператор (opThis) }
-                <code>Если стек пуст,</code>
-                <code>- занести оператор в стек</code>
-                <code>Иначе</code>
-                <code>- пока в стеке остаются элементы</code>
+                <code>Пока в стеке остаются элементы:</code>
                 <code>&nbsp;&nbsp;- извлечь элемент</code>
-                <code>&nbsp;&nbsp;- Если это (, то занести его в стек</code>
+                <code>&nbsp;&nbsp;- Если это (, то занести его в стек и выйти из цикла</code>
                 <code>&nbsp;&nbsp;- Если это оператор (opTop), то</code>
-                <code>&nbsp;&nbsp;&nbsp;&nbsp;- Если opTop &lt; opThis, то занести в стек opTop</code>
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;- Если opTop &lt; opThis, то занести в стек opTop и выйти из цикла</code>
                 <code>&nbsp;&nbsp;&nbsp;&nbsp;- Если opTop &gt;= opThis, то занести opTop в выходную строку</code>
-                <code>- если opTop &lt; opThis или при извлечении ( выйти из цикла</code>
-                <code>- занести в стек opThis</code>
+                <code>Занести в стек opThis</code>
             </li>
             <li>{ Конец входных данных }
                 <code>Пока в стеке остаются элементы: извлечь элемент в выходную строку.</code>
