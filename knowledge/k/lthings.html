@@ -1,0 +1,61 @@
+<html>
+<body>
+    <h1>Мелочи</h1>
+    <p>
+        <div>
+            == - вызывает object.equals(other), ант. !=
+        </div>
+        <div>
+            === - сравнивает ссылки, ант. !==
+        </div>
+    </p>
+    <p>
+        <h2>Интервалы</h2>
+        <div>
+            <code>in 1..5</code>
+        </div>
+        <div>
+            <code>!in 5 downTo 1</code>
+        </div>
+        <div>
+            <code>in 'a' until 'd'</code>
+        </div>
+        <div>
+            <code>(1..5).toList()</code>
+        </div>
+    </p>
+    <p>
+        <h2>Nothing</h2>
+        <div>
+            <code>public inline fun TODO(message: String): Nothing = throw NotImplementedError(message)</code>
+            Nothing говорит компилятору, что функция гарантированно не выполнится успешно.
+        </div>
+    </p>
+    <p>
+        <h2>fun `someFun`</h2>
+        <ul>
+            <li>
+                Вызов методов Java, имена которых совпадают с ключеыми словами Kotlin
+            </li>
+            <li>
+                Применение имен функций с пробелами и другими символами (например, в тестах)
+            </li>
+        </ul>
+    </p>
+    <p>
+        <h2>Анонимные функции</h2>
+        <div>
+            <code>println({year: Int -> </code>
+            <code>&nbsp;&nbsp;"Happy New $year year!"</code>                
+            <code>}(2021))</code>    
+        </div>
+        <div>
+            <code>val newFun: (String) -> String = { name -></code>
+            <code>&nbsp;&nbsp;"Hello, $name!"</code>                
+            <code>}</code>    
+            <code>...</code>  
+            <code>println(newFun("Bob"))</code>  
+        </div>
+    </p>
+</body>
+</html>
