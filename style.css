@@ -17,6 +17,10 @@ body, html {
   height: 100%;
 }
 
+img {
+    height: 27px;
+}
+
 .logo {
     height: 54px;
     cursor: crosshair;
@@ -24,17 +28,17 @@ body, html {
 
 .telegram-logo {
     margin-bottom: 25px;
-    height: 27px;
 }
 
 .github-logo {
     margin-bottom: 25px;
-    height: 27px;
 }
 
-.codewars-logo {
+a.codewars-logo {
     margin-top: 25px;
-    height: 27px;
+}
+
+img.codewars-logo {
     border-radius: 50%;
 }
 
