@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<body>
+    	<h1>Интерфейс Collection</h1>
+    	<p>
+            Основополагающий интерфейс для классов коллекций.
+            <code>public interface Collection&lt;E&gt; {</code>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;boolean add(E element);</code>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;Iterator&lt;E&gt; iterator();</code>
+            <code>...</code>
+            <code>}</code>
+            <mark>Коллекции не допускают дублирование элементов</mark>
+    	</p>
+        <p>
+            <h2>Итераторы</h2>
+            <div>
+                Интерфейс Iterator:
+                <code>public interface Iterator&lt;E&gt; {</code>
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;E next();</code>
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;boolean hasNext();</code>
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;void remove();</code>
+                <code>}</code>
+                При вызове next() в конце коллекции будет выброшено NoSuchElementException.
+            </div>
+            <mark>
+                Компилятор преобразует циклы в стиле for each в циклы с итераторами,
+                поэтому цикл в стиле for each может использоваться с любыми объектами,
+                реализующими интерфейс Iterable&lt;E&gt; (единственный метод iterator())
+            </mark>
+            <div>
+                Порядок обхода элементов коллекции итератором зависит от типа коллекции и может быть хаотичным.
+            </div>
+            <div>
+                Итераторы Java представляются находящимися между элементами коллекции.
+                При вызове next() итератор перешагивает элемент и возвращает ссылку на него.
+                Вызов remove() удалит последний пройденный итератором элемент.
+                Вызов remove() без предварительного вызова next() 
+                и вызов remove(), если после последнего вызова next() коллекция была изменена, выбросят IllegalStateException.
+            </div>
+    	</p>
+	</body>
+</html>
