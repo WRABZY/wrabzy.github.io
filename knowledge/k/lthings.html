@@ -1,61 +1,99 @@
+<!DOCTYPE html>
 <html>
-<body>
-    <h1>Мелочи</h1>
-    <p>
-        <div>
-            == - вызывает object.equals(other), ант. !=
-        </div>
-        <div>
-            === - сравнивает ссылки, ант. !==
-        </div>
-    </p>
-    <p>
-        <h2>Интервалы</h2>
-        <div>
-            <code>in 1..5</code>
-        </div>
-        <div>
-            <code>!in 5 downTo 1</code>
-        </div>
-        <div>
-            <code>in 'a' until 'd'</code>
-        </div>
-        <div>
-            <code>(1..5).toList()</code>
-        </div>
-    </p>
-    <p>
-        <h2>Nothing</h2>
-        <div>
-            <code>public inline fun TODO(message: String): Nothing = throw NotImplementedError(message)</code>
-            Nothing говорит компилятору, что функция гарантированно не выполнится успешно.
-        </div>
-    </p>
-    <p>
-        <h2>fun `someFun`</h2>
-        <ul>
-            <li>
-                Вызов методов Java, имена которых совпадают с ключеыми словами Kotlin
-            </li>
-            <li>
-                Применение имен функций с пробелами и другими символами (например, в тестах)
-            </li>
-        </ul>
-    </p>
-    <p>
-        <h2>Анонимные функции</h2>
-        <div>
-            <code>println({year: Int -> </code>
-            <code>&nbsp;&nbsp;"Happy New $year year!"</code>                
-            <code>}(2021))</code>    
-        </div>
-        <div>
-            <code>val newFun: (String) -> String = { name -></code>
-            <code>&nbsp;&nbsp;"Hello, $name!"</code>                
-            <code>}</code>    
-            <code>...</code>  
-            <code>println(newFun("Bob"))</code>  
-        </div>
-    </p>
-</body>
+    <body>
+        <h1>Мелочи</h1>
+        <p>
+            <div>
+                == - вызывает object.equals(other), ант. !=
+            </div>
+            <div>
+                === - сравнивает ссылки, ант. !==
+            </div>
+        </p>
+        <p>
+            <h2>Интервалы</h2>
+            <div>
+                <code>in 1..5</code>
+            </div>
+            <div>
+                <code>!in 5 downTo 1</code>
+            </div>
+            <div>
+                <code>in 'a' until 'd'</code>
+            </div>
+            <div>
+                <code>(1..5).toList()</code>
+            </div>
+        </p>
+        <p>
+            <h2>Nothing</h2>
+            <div>
+                <code>public inline fun TODO(message: String): Nothing = throw NotImplementedError(message)</code>
+                Nothing говорит компилятору, что функция гарантированно не выполнится успешно.
+            </div>
+        </p>
+        <p>
+            <h2>fun `someFun`</h2>
+            <ul>
+                <li>
+                    Вызов методов Java, имена которых совпадают с ключеыми словами Kotlin
+                </li>
+                <li>
+                    Применение имен функций с пробелами и другими символами (например, в тестах)
+                </li>
+            </ul>
+        </p>
+        <p>
+            <h2>Лямбды</h2>
+            <div>
+                <code>println({year: Int -> </code>
+                <code>&nbsp;&nbsp;"Happy New $year year!"</code>                
+                <code>}(2021))</code>    
+            </div>
+            <div>
+                <code>val newFun: (String) -> String = { name -></code>
+                <code>&nbsp;&nbsp;"Hello, $name!"</code>                
+                <code>}</code>    
+                <code>...</code>  
+                <code>println(newFun("Bob"))</code>  
+            </div>
+            Лямбды неявно возвращают результат выполнения последней
+            инструкции.
+            <div>
+                Применение к. слова it в функциях с одним параметром:
+                <code>val newFun: (String) -> String = {</code>
+                <code>&nbsp;&nbsp;"Hello, $it!"</code>                
+                <code>}</code>    
+                <code>...</code>  
+                <code>println(newFun("Bob"))</code>  
+            </div>
+            <div>
+                <h3>Встраивание лямбды - inline</h3>
+                Применяется для функций, принимающих лямбды.
+                <code>inline fun funName(someLamda: () -> Anything)</code>
+                Вместо создания объекта лямбды, ее текст будет вставлен туда, 
+                откуда произошел вызов. 
+                В некоторых случаях встраивание неприменимо (например в рекурсивных функциях).
+            </div>
+            <div>
+                <h3>Ссылки на функцию</h3>
+                <code>::funName</code>
+            </div>
+            <mark>
+                Лямбды могут изменять и использовать переменные
+                вне их области видимости.
+                Лямбды располагают ссылками на переменные объявленные в области
+                видимости, где создается сама лямбда.
+                Т. о. лямбды - есть замыкания.
+            </mark>
+        </p>
+        <p>
+            <h2>Полезные функции</h2>
+            <code>checkNotNull(variable, {"message"})</code>
+            <code>require(condition, {"message"})</code>
+            <code>requireNotNull(arg, {"message"})</code>
+            <code>error(arg, {"message"})</code>
+            <code>assert(condition, {"message"}) - только при компиляции ea</code>
+        </p>
+    </body>
 </html>
