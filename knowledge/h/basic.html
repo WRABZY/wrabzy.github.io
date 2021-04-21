@@ -1,48 +1,59 @@
+<!DOCTYPE html>
 <html>
-<body>
-    <h1>Основы основ</h1>
-    <mark>Отступы важны</mark>
-    <p>
-        <ul>
-            <li>Импорт
-                <code>import Module.Name</code>
-            </li>
-            <li>Функция
-                <code>simpleFunction x = 1</code>
-            </li>
-            <li>if then else
-                <code>getNumParity x = if x `mod` 2 == 1 then "Odd" else "Even"</code>
-            </li>
-            <li>let и where
-                <code>let a = b + 1 in &lt;выражение&gt;</code>
-                <code>where a = b + 1</code>
-            </li>
-            <li>Композиция - ф., которая принимает две функции в качестве аргументов и передает первой результат второй:
-                <code>(.) - композиция</code>
-                <code>someLast :: [a] -> a</code>
-                <code>someLast :: head . reverse</code>
-            </li>
-            <li>Лямбды
-                <code>\x -> x + 1</code>
-            </li>
-            <li>Доступ к элементу списка по индексу
-                <code>"FUTURAMA" !! 2</code>
-            </li>
-            <li>Сопоставление с образцом
-                <code>function list@(x:xs)</code>
-            </li>
-            <li>Универсальный образец - символ нижнего подчеркивания
-                <code>_</code>
-            </li>
-            <li>Охранные выражения
-                <code>howMuch :: Int -> String</code>
-                <code>howMuch n | n > 10 = "много"</code>
-                <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| n > 0 = "немного"</code>
-                <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| n == 0 = "нет"</code>
-                <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| otherwise = "ушли в минус"</code>
-                В охранных выражениях значение функции вычисляется после нахождения истинного условия.
-            </li>
-        </ul>
-    </p>
-</body>
+    <body>
+        <h1>Основы</h1>
+        <mark>Отступы важны</mark>
+        <p>
+            <ul>
+                <li>Импорт
+                    <code>import Module.Name</code>
+                    <code>import qualified Module.Name as OtherName</code>
+                    <code>import Module.Name hiding (fun1, fun2)</code>
+                </li>
+                <li>Функция
+                    <code>simpleFunction x = 1</code>
+                </li>
+                <li>if then else
+                    <code>getNumParity x = if x `mod` 2 == 1 then "Odd" else "Even"</code>
+                </li>
+                <li>let и where
+                    <code>let a = b + 1 in &lt;выражение&gt;</code>
+                    <code>where a = b + 1</code>
+                </li>
+                <li>Композиция - ф., которая принимает две функции в качестве аргументов и передает первой результат второй:
+                    <code>(.) - композиция</code>
+                    <code>someLast :: [a] -> a</code>
+                    <code>someLast :: head . reverse</code>
+                </li>
+                <li>Лямбды
+                    <code>\x -> x + 1</code>
+                </li>
+                <li>Доступ к элементу списка по индексу
+                    <code>"FUTURAMA" !! 2</code>
+                </li>
+                <li>Сопоставление с образцом
+                    <code>function list@(x:xs)</code>
+                </li>
+                <li>Универсальный образец - символ нижнего подчеркивания
+                    <code>_</code>
+                </li>
+                <li>Охранные выражения
+                    <code>howMuch :: Int -> String</code>
+                    <code>howMuch n | n > 10 = "много"</code>
+                    <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| n > 0 = "немного"</code>
+                    <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| n == 0 = "нет"</code>
+                    <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| otherwise = "ушли в минус"</code>
+                    В охранных выражениях значение функции вычисляется после нахождения истинного условия.
+                </li>
+                <li>Кайнды
+                    <div>
+                        К. - это типы типа. Кайнд - количество параметров, принимаемых типом.
+                        <code>* - тип не принимает параметров (Int :: *)</code>
+                        <code>* -> * - тип принимает один параметр ([] :: * -> *)</code>
+                        <code>* -> * -> * - тип принимает два параметра ((,) :: * -> * -> *)</code>
+                    </div>
+                </li>
+            </ul>
+        </p>
+    </body>
 </html>
