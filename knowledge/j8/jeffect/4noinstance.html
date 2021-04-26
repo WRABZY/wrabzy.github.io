@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<body>
+    	<h1>4. Неинстанцируемость</h1>
+    	<p>
+            Обеспечить неиснтанцируемость можно с помощью закрытого конструктора.
+    	</p>
+        <p>
+            <h2>Суть</h2>
+            В отсутствие явного конструктора автоматически создается открытый конструктор по умолчанию.
+            Неинстанцируемости класса можно добиться, предоставив закрытый конструктор:
+            <code>public class UtilityClass {</code>
+            <code>&nbsp;&nbsp;private UtilityClass() {</code>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;throw new AssertionError();</code>
+            <code>&nbsp;&nbsp;}</code>
+            <code>&nbsp;&nbsp;...</code>
+            <code>}</code>
+    	</p>
+       
+	</body>
+</html>
