@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<body>
+    	<h1>СФР</h1>
+        <h2>Стандартные функции-расширения</h2>
+    	<p>
+            Шесть наиболее часто применяемых функций:
+            <ol>
+                <li>
+                    apply {}
+                </li>
+                <li>
+                    let {}
+                </li>
+                <li>
+                    run {}
+                </li>
+                <li>
+                    with {}
+                </li>
+                <li>
+                    also {}
+                </li>
+                <li>
+                    takeIf {}
+                </li>
+            </ol>
+    	</p>
+        <p>
+            <h2>apply {}</h2>
+            Функция настройки. Возвращает объект-получатель.
+            <div>
+                Без apply:
+                <code>val menuFile = File("menu-file.txt")</code>
+                <code>menuFile.setReadable(true)</code>
+                <code>menuFile.setWritable(true)</code>
+                <code>menuFile.setExecutable(false)</code>
+            </div>
+            <div>
+                С использованием apply:
+                <code>val menuFile = File("menu-file.txt").apply {</code>
+                <code>&nbsp;&nbsp;setReadable(true)</code>
+                <code>&nbsp;&nbsp;setWritable(true)</code>
+                <code>&nbsp;&nbsp;setExecutable(false)</code>
+                <code>}</code>
+            </div>
+        </p>
+        <p>
+            <h2>let {}</h2>
+            Замыкание объекта-получателя. Возвращает результат вычислений
+            (результат последней строки лямбды),
+            в которых участвовал объект-получатель.
+            Внутри лямбды на объект-получатель указывает ссылка it.
+            <div>
+                Без let:
+                <code>val firstElem = listOf(1, 2, 3).first()</code>
+                <code>val firstItemSquared = firstElem * firstElem</code>
+            </div>
+            <div>
+                С использованием let:
+                <code>val firstItemSquared = listOf(1, 2, 3).first().let {</code>
+                <code>&nbsp;&nbsp;it*it</code>
+                <code>}</code>
+            </div>
+        </p>
+        <p>
+            <h2>run {}</h2>
+            Вызывает функцию относительно объекта-получателя.
+            Возвращает результат вычислений.
+            <div>
+                Пример:
+                <code>val menuFile = File("menu-file.txt")</code>
+                <code>val servesDragonsBreath: Boolean = menuFile.run {</code>
+                <code>&nbsp;&nbsp;readText().contains("Dragon's Breath")</code>
+                <code>}</code>
+            </div>
+            <div>
+                Может также использоваться для выполнения ссылки на функцию относительно
+                объекта-приемника:
+                <code>"Mad".run(::nameIsLong)</code>
+            </div>
+            <div>
+                Может использоваться без объекта-приемника:
+                <code>val status = run {</code>
+                <code>&nbsp;&nbsp;if (healthPoints == 100) "perfect" else "has injuries"</code>
+                <code>}</code>
+            </div>
+        </p>
+        <p>
+            <h2>with {}</h2>
+            Это как run {}, но вызывается без объекта-получателя,
+            а ссылка на объект-получатель передается в аргументе.
+            <div>
+                <code>val nameLong = with("Polarcubis") {</code>
+                <code>&nbsp;&nbsp;length >= 20</code>
+                <code>}</code>
+            </div>
+        </p>
+        <p>
+            <h2>also {}</h2>
+            Замыкание объекта-получателя, как let {}, но возвращает объект-получатель.
+            <div>
+                <code>var fileContents: List&lt;String&gt;</code>
+                <code>File("file.txt")</code>
+                <code>&nbsp;&nbsp;.also {</code>
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;print(it.name)</code>
+                <code>&nbsp;&nbsp;}.also {</code>
+                <code>&nbsp;&nbsp;&nbsp;&nbsp;fileContents = it.readLines()</code>
+                <code>&nbsp;&nbsp;}</code>
+                <code>}</code>
+            </div>
+        </p>
+        <p>
+            <h2>takeIf {}</h2>
+            Возвращает объект-получатель, если предикат внутри возвращает истину.
+            <div>
+                <code>val fileContents = File("myFile.txt")</code>
+                <code>&nbsp;&nbsp;.takeIf { it.canRead() && it.canWrite() }</code>
+                <code>&nbsp;&nbsp;?.readText() // читает содержимое, если файл доступен</code>
+            </div>
+            takeUnless {} возвращает объект-получатель, если предикат внутри возвращает ложь.
+        </p>
+	</body>
+</html>
