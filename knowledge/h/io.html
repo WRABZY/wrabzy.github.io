@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<body>
+    	<h1>IO</h1>
+    	<p>
+            <code>helloPerson :: String -> String</code>
+            <code>helloPerson name = "Hello, " ++ name</code>
+            <code>&nbsp;</code>
+            <code>main :: IO ()</code>
+            <code>main = do</code>
+            <code>&nbsp;&nbsp;putStrLn "Hi! Your name?"</code>
+            <code>&nbsp;&nbsp;name &lt;- getLine</code>
+            <code>&nbsp;&nbsp;let statement = helloPerson name</code>
+            <code>&nbsp;&nbsp;putStrLn statement</code>
+    	</p>
+        <p>
+            <h2>Do - нотация</h2>
+            <div>
+                Do - нотация предназначена для работы внутри контекста IO
+            </div>
+            Переменные, значения которым были присвоены с помощью &lt;-,
+            позволяют работать с типом IO a, будто это значение типа a.
+            Выражения let используются при создании переменных,
+            не принадлежащих типу IO. Например:
+            <code>name &lt;- getLine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--getLine возвращает IO String</code>
+            <code>let statement = helloPerson name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--helloPerson принимает String</code>
+            <code>--так как значение name присвоено с использованием &lt;-, ее можно использовать как тип String</code>
+        </p>
+	</body>
+</html>
