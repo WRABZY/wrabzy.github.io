@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<body>
+    	<h1>Двоичный поиск</h1>
+    	<p>
+            <code>static int searchIndexOf(int what, int[] where) {</code>
+            <code>&nbsp;&nbsp;int from = 0;</code>
+            <code>&nbsp;&nbsp;int to = where.length - 1;</code>
+            <code>&nbsp;&nbsp;while (from &lt;= to) {</code>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;int index = (to + from) / 2;</code>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;if (what &lt; where[index]) to = index - 1;</code>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;else if (what &gt; where[index]) from = index + 1;</code>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;else return index;</code>
+            <code>&nbsp;&nbsp;}</code>
+            <code>&nbsp;&nbsp;return -1;</code>
+            <code>}</code>
+    	</p>
+        <p>
+            <div>
+                "while (from &lt;= to)" - используется нестрогое неравенство, так как иначе произойдет ошибка в ситуации, когда
+                границы from == to - элемент where[from] не проверится при строгом неравенстве.
+            </div>
+            <div>
+                Отсюда вытекает необходимость "int to = where.length - 1;", так как из-за возможности внутри цикла from == to
+                существует потенциальная опасность index = (to + from) / 2 = 2 * to / 2 = to. При to = where.length -> ArrayIndexOutOfBoundsException.
+            </div>
+        </p>
+        <p>
+            <h2>Узкие места</h2>
+            <code>int index = (to + from) / 2;</code>
+            Может привести к переполнению при больших размерах массива.
+            Можно использовать:
+            <code>int index = from + (to - from) / 2;</code>
+        </p>
+	</body>
+</html>
