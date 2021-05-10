@@ -24,18 +24,19 @@ img {
 .logo {
     height: 54px;
     cursor: crosshair;
+    margin-bottom: 100px;
 }
 
 .telegram-logo {
-    margin-bottom: 25px;
+    margin-bottom: 27px;
 }
 
 .github-logo {
-    margin-bottom: 25px;
+    margin-bottom: 27px;
 }
 
 a.codewars-logo {
-    margin-top: 25px;
+    margin-bottom: 27px;
 }
 
 img.codewars-logo {
@@ -43,15 +44,20 @@ img.codewars-logo {
 }
 
 .searchBar {
-    margin-top: 25px;
+    margin-bottom: 27px;
     padding-left: 5px;
     /*padding-right: 5px;*/
     height: 27px;
     width: 27px;
-    background: #E02E2E;
-    background: linear-gradient(to bottom, #E67409, #FFA800);
+    background: #FFF;
+    /*background: linear-gradient(to bottom, #E67409, #FFA800);*/
     border: none;
     color: #000;
     outline: none; /* for chrome */
     border-radius: 50%;
+}
+
+.year {
+    color: #FFF;
+    margin-top: 27px;
 }

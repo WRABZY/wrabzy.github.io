@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<body>
+    	<h1>Лямбды</h1>
+        <div>
+            Лямбдой можно воспользоваться, когда ожидается объект функционального интерфейса.
+            Ссылка на лямбду должна иметь тип функционального интерфейса. Например, присваивание
+            ссылке типа Object лямбды вызовет ошибку компиляции.
+        </div>
+        <div>
+            Однострочная запись с параметрами
+            <code>(String first, String second) -> first.length() - second.length()</code>
+        </div>
+        <div>
+            Многострочная запись с параметрами
+            <code>(String first, String second) -> {</code>
+            <code>&nbsp;&nbsp;if (first.length() &lt; second.length()) return -1;</code>
+            <code>&nbsp;&nbsp;else if (first.length() &gt; second.length()) return 1;</code>
+            <code>&nbsp;&nbsp;else return 0;</code>
+            При многострочной записи необходимо указание return.
+        </div>
+        <div>
+            Однострочная запись без параметров
+            <code>() -> { for (int i = 100; i &gt;= 0; i--) System.out.println(i); }</code>
+        </div>
+    	<div>
+            Если типы параметров могут быть выведены, объявление можно опустить:
+            <code>Comparator&lt;String&gt; comp = (first, second) -> first.length() - second.length()</code>
+        </div>
+        <div>
+            Если у метода только один параметр, и его тип можно вывести:
+            <code>ActionListener listener = event -> System.out.println("The time is " + new Date());</code>
+        </div>
+	</body>
+</html>
