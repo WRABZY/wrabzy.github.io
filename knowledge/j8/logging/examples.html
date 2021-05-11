@@ -1,0 +1,39 @@
+<html>
+<body>
+    <h1>Примеры кода</h1>
+    <p>
+        <h2>Создание логера</h2>
+        <code>private static final Logger logger = Logger.getLogger("name.of.logger");</code>
+    </p>
+    <p>
+        <h2>Задание уровня логеру</h2>
+        <code>logger.setLevel(Level.FINE);</code>
+    </p>
+    <p>
+        <h2>Методы логирования</h2>
+        <code>logger.warning(message);</code>
+        <code>logger.log(Level.WARNING, message);</code>
+        <code>logger.logp(Level.WARNING, "ClassName", "methodName", message);</code>
+        <code>logger.entering("ClassName", "methodName");</code>
+        <code>logger.entering("ClassName", "methodName", new Object[]{param1, param2, param3});</code>
+        <code>logger.exiting("ClassName", "methodName");</code>
+        <code>logger.exiting("ClassName", "methodName", result);</code>
+        При вызовах entering() и exiting() запись имеет уровень FINER.
+    </p>
+    <p>
+        <h2>Логирование исключений</h2>
+        <code>logger.throwing("ClassName", "methodName", throwable);</code>
+        <code>logger.log(Level.WARNING, "message", throwable);</code>
+        При вызове throwing() запись имеет уровень FINER.
+    </p>
+    <p>
+        <h2>Установка своего хендлера</h2>
+        <code>Logger logger = Logger.getLogger("com.mycompany.myapp");</code>
+        <code>logger.setLevel(Level.FINE);</code>
+        <code>logger.setUseParentHandlers(false);</code>
+        <code>Handler handler = new ConsoleHandler();</code>
+        <code>handler.setLevel(Level.FINE);</code>
+        <code>logger.addHandler(handler);</code>
+    </p>
+</body>
+</html>

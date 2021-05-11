@@ -1,0 +1,41 @@
+<html>
+<body>
+    <h1>Вариантность</h1>
+    <div>
+        Коваринатность - сохранение иерархии наследования исходных типов в производных типах в том же порядке.
+        В java ковариантны:
+        <ul>
+            <li>
+                Массивы
+                <code>String[] strings = new String[] {"a", "b", "c"};</code>
+                <code>Object[] arr = strings;</code>
+            </li>
+            <li>
+                Дженерики с "? extends"
+                <code>List&lt;Integer&gt; ints = new ArrayList&lt;Integer&gt;();</code>
+                <code>List&lt;? extends Number&gt; nums = ints;</code>
+            </li>
+        </ul>
+    </div>
+    <div>
+        Контравариантность - обращение иерархии исходных типов на противоположную в производных типах.
+        В java контравариантны:
+        <li>
+            Дженерики с "? super"
+            <code>List&lt;Number&gt; nums = new ArrayList&lt;Number&gt;();</code>
+            <code>List&lt;? super Integer&gt; ints = nums;</code>
+        </li>
+    </div>
+    <div>
+        Инвариантность - отсутствие наследования между производными типами.
+        В java инвариантны:
+        <ul>
+            <li>
+                Дженерики без wildcard
+                <code>List&lt;Integer&gt; ints = Arrays.asList(1,2,3);</code>
+                <code>List&lt;Number&gt; nums = ints; // compile-time error</code>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

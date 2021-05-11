@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<body>
+    	<h1>3. Синглтоны</h1>
+    	<p>
+            Создавать синглтон удобно с помощью закрытого конструктора или типа перечисления.
+    	</p>
+        <p>
+            <h2>Первый вариант</h2>
+            <code>public class Elvis {</code>
+            <code>&nbsp;&nbsp;public static final Elvis INSTANCE = new Elvis();</code>
+            <code>&nbsp;&nbsp;private Elvis() {</code>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;...</code>
+            <code>&nbsp;&nbsp;}</code>
+            <code>}</code>
+            <mark>
+                Привилегированный клиент может вызвать закрытый конструктор рефлексивно
+                с помощью метода AccessibleObject.setAccessible().
+                От этого можно защититься, изменив конструктор так, чтобы он генерировал исключение
+                при попытках создания второго экземпляра.
+            </mark>
+    	</p>
+        <p>
+            <h2>Второй вариант</h2>
+            <code>public class Elvis {</code>
+            <code>&nbsp;&nbsp;private static final Elvis INSTANCE = new Elvis();</code>
+            <code>&nbsp;&nbsp;private Elvis() {</code>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;...</code>
+            <code>&nbsp;&nbsp;}</code>
+            <code>&nbsp;&nbsp;public static Elvis getInstance() {</code>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;return INSTANCE;</code>
+            <code>&nbsp;&nbsp;}</code>
+            <code>}</code>
+    	</p>
+        <p>
+            <h2>Третий вариант</h2>
+            <h3>Предпочтительный</h3>
+            <code>public enum Elvis {</code>
+            <code>&nbsp;&nbsp;INSTANCE;</code>
+            <code>&nbsp;&nbsp;public void someMethod() {</code>
+            <code>&nbsp;&nbsp;&nbsp;&nbsp;...</code>
+            <code>&nbsp;&nbsp;}</code>
+            <code>}</code>
+            <mark>
+                Перечисление автоматически является сериализуемым и устойчивым к атакам через рефлексию.
+            </mark>
+    	</p>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<body>
+    <h1>Ограничения обобщений</h1>
+    <p>
+        <h2>Ограничения на переменные типа</h2>
+        <code>public static &lt;T extends SomeType&gt; T callMethod(T[] a)</code>
+        SomeType - может быть как интерфейсом, так и классом.
+        На переменную типа может накладываться несколько ограничений:
+        <code>public static &lt;T extends Type & OtherType&gt; T callMethod(T[] a)</code>
+        Только один из ограничивающих типов может быть классом.
+        Если в список ограничений входит класс, он должен быть указан первым в списке ограничений.
+    </p>
+    <p>
+        <h2>Подстановочные типы</h2>
+        <div>
+            Запись вида "? extends ..." или "? super ..." — называется wildcard или символом подстановки, 
+            с верхней границей (extends) или с нижней границей (super).
+        </div>
+        <h3>PECS</h3>
+        <div>
+            Producer Extends Consumer Super:
+            <ul>
+                <li>
+                    Wildcard с extends - producer. Он предоставляет элемент из контейнера.
+                </li>
+                <li>
+                    Wildcard с super - consumer. Он принимает элемент в контейнер.
+                </li>
+            </ul>
+        </div>
+        <h3>&lt;?&gt;</h3>
+        <div>
+            Неограниченный символ подстановки &lt;?&gt; означает &lt;? extends Object&gt;
+        </div>
+    </p>
+</body>
+</html>
