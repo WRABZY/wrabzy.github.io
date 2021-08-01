@@ -1,0 +1,67 @@
+<html>
+<body>
+    <h1>Типы данных</h1>
+    <p>
+        <h2>Символьныe</h2>
+        <div>
+            <code>char = character(n)&nbsp;&nbsp;&nbsp;&nbsp;# дополняется пробелами до длины n</code>
+            <code>text</code>
+            <code>varchar = character varying(n)</code>
+        </div>
+        <div>
+            Для экранирования кавычки ' она удваивается.
+            Вместо кавычек для обозначения символа может использоваться удвоенный $,
+            тогда экранирование кавычек не потребуется.
+        </div>
+        <div>
+            Указание E перед первой кавычкой позволяет использовать строковые константы из C.
+            <code>SELECT E'PGDAY\n17'&nbsp;&nbsp;&nbsp;&nbsp;# тут перевод строки в виде \n</code>
+            При этом для вставки обратного слэша, его нужно экранировать как \\,
+            а для вставки кавычки либо \', либо ''.
+        </div>
+    </p>
+    <p>
+        <h2>Числовые</h2>
+        <div>
+            <h3>Целочисленные</h3>
+            <ul>
+                <li>smallint = int2</li>
+                <li>integer = int4</li>
+                <li>bigint = int8</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Фиксированной точности</h3>
+            <ul>
+                <li>numeric</li>
+                <li>decimal</li>
+            </ul>
+            Scale (масштаб) показывает число значащих цифр после запятой.
+            Precision (точность) указывает общее число цифр. 
+            Пример: у числа 12.3456 масштаб 4 и точность 6.
+            <code>numeric(prec, scale)</code>
+            <code>numeric(6, 4)</code>
+        </div>
+        <div>
+            <h3>С плавающей точкой</h3>
+            <ul>
+                <li>real = float(p), если значение в диапазоне от 1 до 24</li>
+                <li>double precision = float(p), если значение в диапазоне от 25 до 53</li>
+            </ul>
+            Scale (масштаб) показывает число значащих цифр после запятой.
+            Precision (точность) указывает общее число цифр. 
+            Пример: у числа 12.3456 масштаб 4 и точность 6.
+            <code>numeric(prec, scale)</code>
+            <code>numeric(6, 4)</code>
+        </div>
+        <div>
+            <h3>Serial</h3>
+            <ul>
+                <li>smallserial = уникальные smallint</li>
+                <li>serial = уникальные integer</li>
+                <li>bigserial = уникальные bigint</li>
+            </ul>
+        </div>
+    </p>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<html>
+<body>
+    <h1>Примеры команд</h1>
+    <p>
+        <h2>Создание таблицы</h2>
+        <div>
+            <code>CREATE TABLE aircrafts</code>
+            <code>( aircraft_code char( 3 ) NOT NULL,</code>
+            <code>model text NOT NULL,</code>
+            <code>range integer NOT NULL,</code>
+            <code>CHECK ( range > 0),</code>
+            <code>PRIMARY KEY ( aircraft_code )</code>
+            <code>)\g</code>
+        </div>
+        <div>
+            <code>CREATE TABLE seats</code>
+            <code>( aircraft_code char( 3 ) NOT NULL,</code>
+            <code>seat_no varchar( 4 ) NOT NULL,</code>
+            <code>fare_conditions varchar( 10 ) NOT NULL,</code>
+            <code>CHECK ( fare_conditions IN ( 'Economy', 'Comfort', 'Business' )),</code>
+            <code>PRIMARY KEY ( aircraft_code, seat_no ),</code>
+            <code>FOREIGN KEY ( aircraft_code )</code>
+            <code>REFERENCES aircrafts ( aircraft_code )</code>
+            <code>ON DELETE CASCADE</code>
+            <code>);</code>
+        </div>
+    </p>
+    <p>
+        <h2>Удаление таблицы</h2>
+        <div>
+            <code>DROP TABLE aircrafts;</code>
+        </div>
+    </p>
+    <p>
+        <h2>Вставка данных в таблицу</h2>
+        <div>
+            <code>INSERT INTO aircrafts ( aircraft_code, model, range )</code>
+            <code>VALUES ( 'SU9', 'Sukhoi SuperJet-100', 3000 );</code>
+        </div>
+        <div>
+            <code>INSERT INTO aircrafts ( aircraft_code, model, range )</code>
+            <code>VALUES ( '773', 'Boeing 777-300', 11100 ),</code>
+            <code>( '763', 'Boeing 767-300', 7900 ),</code>
+            <code>( '733', 'Boeing 737-300', 4200 ),</code>
+            <code>( '320', 'Airbus A320-200', 5700 ),</code>
+            <code>( '321', 'Airbus A321-200', 5600 ),</code>
+            <code>( '319', 'Airbus A319-100', 6700 ),</code>
+            <code>( 'CN1', 'Cessna 208 Caravan', 1200 ),</code>
+            <code>( 'CR2', 'Bombardier CRJ-200', 2700 )\g</code>
+        </div>
+    </p>
+    <p>
+        <h2>Выборка данных из таблицы</h2>
+        <div>
+            <code>SELECT * FROM aircrafts;</code>
+        </div>
+        <div>
+            <code>SELECT model, aircraft_code, range</code>
+            <code>FROM aircrafts</code>
+            <code>ORDER BY model;</code>
+        </div>
+        <div>
+            <code>SELECT model, aircraft_code, range</code>
+            <code>FROM aircrafts</code>
+            <code>WHERE range &gt;= 4000 AND range &lt;= 6000;</code>
+        </div>
+        <div>
+            <code>SELECT count( * ) FROM seats WHERE aircraft_code = 'SU9';</code>
+        </div>
+        <div>
+            <code>SELECT aircraft_code, fare_conditions, count( * )</code>
+            <code>FROM seats</code>
+            <code>GROUP BY aircraft_code, fare_conditions</code>
+            <code>ORDER BY aircraft_code, fare_conditions;</code>
+        </div>
+    </p>
+    <p>
+        <h2>Обновление данных в таблице</h2>
+        <div>
+            <code>UPDATE aircrafts SET range = 3500</code>
+            <code>WHERE aircraft_code = 'SU9';</code>
+        </div>
+        <mark>Если не указать ограничение, данные будут обновлены во всех записях таблицы.</mark>
+    </p>
+    <p>
+        <h2>Удаление строк</h2>
+        <div>
+            <code>DELETE FROM aircrafts WHERE aircraft_code = 'CN1';</code>
+        </div>
+        <div>
+            <code>DELETE FROM aircrafts;&nbsp;&nbsp;&nbsp;&nbsp;# удаление всех строк</code>
+        </div>
+    </p>
+</body>
+</html>
