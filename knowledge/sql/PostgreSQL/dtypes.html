@@ -63,5 +63,44 @@
             </ul>
         </div>
     </p>
+    <p>
+        <h2>Дата/время</h2>
+        <div>
+            <code>date&nbsp;&nbsp;&nbsp;&nbsp;# 'yyyy-mm-dd'/'Sep 12, 2016'</code>
+            <code>time</code>
+            <code>time with time zone&nbsp;&nbsp;&nbsp;&nbsp;# (not recommended)</code>
+            <code>timestamp with time zone = timestamptz</code>
+            <code>timestamp</code>
+            <code>interval</code>
+        </div>
+        <div>
+            <h3>interval</h3>
+            Формат ввода:
+            <code>количество единицИзмерения ago/""</code>
+            Где единицИзмерения:
+            <ul>
+                <li>microsecond</li>
+                <li>millisecond</li>
+                <li>second</li>
+                <li>minute</li>
+                <li>hour</li>
+                <li>day</li>
+                <li>week</li>
+                <li>month</li>
+                <li>year</li>
+                <li>decade</li>
+                <li>century</li>
+                <li>millennium</li>
+            </ul>
+            Пример:
+            <code>SELECT '1 year 2 months ago'::interval;</code>
+            Альтернативный формат
+            <code>Pyyyy-mm-ddThh:mm:ss</code>
+            Пример:
+            <code>SELECT 'P0001-02-03T04:05:06'::interval;</code>
+            Получение интервала при вычитании временных меток:
+            <code>SELECT ('2016-09-16'::timestamp - '2016-09-01'::timestamp)::interval;</code>
+        </div>
+    </p>
 </body>
 </html>
