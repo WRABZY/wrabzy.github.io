@@ -1,0 +1,66 @@
+<html>
+<body>
+    <h1>SELECT</h1>
+    <p>
+        <h2>Простая выборка</h2>
+        <div>
+            <code>SELECT column1, column2, ...</code>
+            <code>FROM table;</code>
+        </div>
+        <div>
+            <code>SELECT *</code>
+            <code>FROM table;</code>
+        </div>
+    </p>
+    <p>
+        <h2>Выборка с сортировкой</h2>
+        <div>
+            <code>SELECT col1, col2, ...</code>
+            <code>FROM table</code>
+            <code>ORDER BY col1, 2, col3;</code>
+        </div>
+        <div>
+            <code>SELECT col1, col2, ...</code>
+            <code>FROM table</code>
+            <code>ORDER BY col1 DESC, col3;</code>
+        </div>
+    </p>
+    <p>
+        <h2>Выборка с фильтром</h2>
+        <div>
+            <code>SELECT col1, col2, ...</code>
+            <code>FROM table</code>
+            <code>WHERE col1 = 5;</code>
+        </div>
+        <div>
+            <h3>Операции фильтрации</h3>
+            <code>=</code>
+            <code>&lt;&gt;</code>
+            <code>!=</code>
+            <code>&lt;</code>
+            <code>&lt;=</code>
+            <code>!&lt;</code>
+            <code>&gt;</code>
+            <code>&gt;=</code>
+            <code>!&gt;</code>
+            <code>BETWEEN</code>
+            <code>IS NULL</code>
+            <code>AND</code>
+            <code>OR</code>
+            <code>col IN (1, 2, 3)</code>
+            <code>NOT</code>
+        </div>
+        <div>
+            <h3>LIKE и метасимволы</h3>
+            <code>% = regex *</code>
+            <code>_ = regex ?</code>
+            <code>[ab] = regex [ab]</code>
+            <code>[^ab] = regex [^ab]</code>
+            Примеры
+            <code>SELECT col1</code>
+            <code>FROM table</code>
+            <code>WHERE col2 LIKE 'Any%';</code>
+        </div>
+    </p>
+</body>
+</html>
