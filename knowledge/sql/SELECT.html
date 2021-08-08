@@ -62,5 +62,45 @@
             <code>WHERE col2 LIKE 'Any%';</code>
         </div>
     </p>
+    <p>
+        <h2>Вычисляемые поля</h2>
+        <div>
+            <h3>Конкатенация</h3>
+            <code>SELECT col1 || ', ' || col2 FROM table;</code>
+            <code>SELECT col1 + ', ' + col2 FROM table;</code>
+            <code>SELECT CONCAT(col1, ', ', col2) FROM table;</code>
+        </div>
+        <div>
+            <h3>Тримминг пробелов</h3>
+            <code>SELECT RTRIM(col1) FROM table;</code>
+            <code>SELECT LTRIM(col1) FROM table;</code>
+            <code>SELECT TRIM(col1) FROM table;</code>
+        </div>
+        <div>
+            <h3>Псевдонимы</h3>
+            <code>SELECT col1 AS firstCol FROM table;</code>
+        </div>
+        <div>
+            <h3>Математика</h3>
+            <code>SELECT col1 + col2 FROM table;</code>
+            <code>SELECT col1 - col2 FROM table;</code>
+            <code>SELECT col1 * col2 FROM table;</code>
+            <code>SELECT col1 / col2 FROM table;</code>
+        </div>
+    </p>
+    <p>
+        <h2>Группировка</h2>
+        <div>
+            <code>SELECT column1, column2, ...</code>
+            <code>FROM table</code>
+            <code>GROUP BY column1;</code>
+        </div>
+        <div>
+            <code>SELECT column1, column2, ...</code>
+            <code>FROM table</code>
+            <code>GROUP BY column1</code>
+            <code>HAVING COUNT(*) >= 2;</code>
+        </div>
+    </p>
 </body>
 </html>

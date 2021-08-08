@@ -1,0 +1,72 @@
+<html>
+<body>
+    <h1>Функции</h1>
+    <p>
+        <h2>Для строк</h2>
+        <div>
+            <h3>Тримминг пробелов</h3>
+            <code>SELECT RTRIM(col1) FROM table;</code>
+            <code>SELECT LTRIM(col1) FROM table;</code>
+            <code>SELECT TRIM(col1) FROM table;</code>
+        </div>
+        <div>
+            <h3>Регистр</h3>
+            <code>SELECT UPPER(col1) FROM table;</code>
+            <code>SELECT LOWER(col1) FROM table;</code>
+            <code>SELECT UCASE(col1) FROM table;</code>
+            <code>SELECT LCASE(col1) FROM table;</code>
+        </div>
+        <div>
+            <h3>Длина</h3>
+            <code>SELECT LENGTH(col1) FROM table;</code>
+            <code>SELECT LEN(col1) FROM table;</code>
+            <code>SELECT DATALENGTH(col1) FROM table;</code>
+        </div>
+        <div>
+            <h3>SOUNDEX</h3>
+        </div>
+    </p>
+    <p>
+        <h2>Дата / время</h2>
+        <div>
+            <h3>Часть даты</h3>
+            <code>SELECT col1 FROM table WHERE DATE_PART('year', col2) = 2021;</code>
+            <code>SELECT col1 FROM table WHERE DATEPART(yy, col2) = 2021;</code>
+            <code>SELECT col1 FROM table WHERE DATEPART('yyyy', col2) = 2021;</code>
+            <code>SELECT col1 FROM table WHERE YEAR(col2) = 2021;</code>
+            <code>SELECT col1 FROM table WHERE to_number(to_char(col2, 'YY')) = 2021;</code>
+            <code>SELECT col1 FROM table WHERE col2 BETWEEN to_date('01-JAN-2021') AND to_date('31-DEC-2021');</code>
+        </div>
+    </p>
+    <p>
+        <h2>Числа</h2>
+        <div>
+            <code>SELECT ABS(col1) FROM table;</code>
+            <code>SELECT COS(col1) FROM table;</code>
+            <code>SELECT EXP(col1) FROM table;</code>
+            <code>SELECT PI(col1) FROM table;</code>
+            <code>SELECT SIN(col1) FROM table;</code>
+            <code>SELECT SQRT(col1) FROM table;</code>
+            <code>SELECT TAN(col1) FROM table;</code>
+        </div>
+    </p>
+    <p>
+        <h2>Статистика</h2>
+        <div>
+            <code>SELECT AVG(col1) FROM table;</code>
+            <code>SELECT COUNT(*) FROM table;</code>
+            <code>SELECT COUNT(col1) FROM table;</code>
+            <code>SELECT MAX(col1) FROM table;</code>
+            <code>SELECT MIN(col1) FROM table;</code>
+            <code>SELECT SUM(col1) FROM table;</code>
+        </div>
+        <div>
+            <h3>ALL и DISTINCT</h3>
+            ALL(подсчет всего) не требуется указывать,
+            подразумевается по умолчанию.
+            Пример использования DISTINCT(подсчет только уникальных):
+            <code>SELECT COUNT(DISTINCT col1) FROM table;</code>
+        </div>
+    </p>
+</body>
+</html>
