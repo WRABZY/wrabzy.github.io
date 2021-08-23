@@ -1,0 +1,52 @@
+<html>
+<body>
+    <h1>Работа с базами данных</h1>
+    <p>
+        <h2>Термины и сокращения</h2>
+        <div>
+            <h3>JDBC</h3>
+            <code>Java Database Connectivity</code>
+            Java API для работы с базами данных.
+            <ol>
+                <li>Connection - соединение с БД и режим работы</li>
+                <li>Statement - выражение обращения к базе</li>
+                <li>ResultSet - объект с результатом запроса</li>
+            </ol>
+        </div>
+        <div>
+            <h3>ORM</h3>
+            <code>Object Relational Mapping</code>
+            Отображение объектов на отношения.
+            Основные аннотации:
+            <ul>
+                <li>@Entity - объект класса можно "переложить" в таблицу</li>
+                <li>@Table - связывает класс и таблицу</li>
+                <li>@Id - поле является первичным ключом в таблице</li>
+                <li>@Column - связывает поле и колонку в таблице</li>
+            </ul>
+            Hibernate - пример ORM.
+        </div>
+        <div>
+            <h3>JPA</h3>
+            <code>Java Persistency API</code>
+            JDK API для ORM
+        </div>
+        <div>
+            <h3>Hibernate</h3>
+            Популярная библиотека для ORM, implements JPA
+        </div>
+        <div>
+            <h3>DAO</h3>
+            <code>Data Access Object</code>
+            Объект, позволяющий получить доступ к данным.
+            Центральный объект ORM. Преобразует объекты в таблицы,
+            а таблицы в объекты. 
+        </div>
+        <div>
+            <h3>DataSet</h3>
+            Объект, содержащий данные одной строки таблицы.
+            В терминах JPA DataSet - это Entity.
+        </div>
+    </p>
+</body>
+</html>
